@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMI Calculator with Dark Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button class="toggle" id="button2" onclick="toggleDarkMode()">🌗 Change Mode</button>
+    <h2>📊 Loan EMI Calculator</h2>
+
+    <input type="number" id="loanAmount" placeholder="Loan Amount (₹)">
+    <input type="number" id="interestRate" placeholder="Annual Interest Rate (%)">
+    <input type="number" id="loanMonths" placeholder="Loan Period (Months)">
+    
+    <button id="button1" onclick="calculateEMI()">Calculate EMI</button>
+    
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

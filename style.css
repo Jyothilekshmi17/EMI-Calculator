@@ -1,0 +1,216 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --input-bg: #f7f7f7;
+  --input-border: #d0d0d0;
+  --primary-color: #2c2c2c;
+  --result-bg: #f0f0f0;
+  --highlight: #2a9ab1;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+body.dark {
+  --bg-color: #1c1c1c;
+  --text-color: #e5e5e5;
+  --input-bg: #2a2a2a;
+  --input-border: #4a4a4a;
+  --primary-color: #e0e0e0;
+  --result-bg: #2e2e2e;
+  --highlight: #cccccc;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --hover-shadow: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.4s, color 0.4s;
+}
+
+.container {
+  background: var(--bg-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  border: 1px solid var(--input-border);
+  transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+}
+
+input {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  transition: border-color 0.3s, background 0.3s, color 0.3s;
+}
+
+input:focus {
+  border-color: var(--highlight);
+  outline: none;
+  box-shadow: 0 0 6px var(--hover-shadow);
+}
+
+button {
+  width: 70%;
+  padding: 0.9rem;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #4a4a4a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--hover-shadow);
+}
+
+.result {
+  background: var(--result-bg);
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--highlight);
+  text-align: left;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.error {
+  color: #e63939;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.toggle:hover {
+  color: var(--highlight);
+}
+
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.result-box {
+  background: var(--result-bg);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--hover-shadow);
+}
+
+.result-box .label {
+  font-size: 1rem;
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+.result-box .value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (min-width: 600px) {
+  .results-wrapper {
+    flex-direction: column;
+  }
+
+  .result-box {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Header with SVG logo */
+header {
+  background: var(--primary-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-svg {
+  width: 36px;
+  height: 36px;
+  fill: var(--bg-color);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bg-color);
+}
